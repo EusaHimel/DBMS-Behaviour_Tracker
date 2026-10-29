@@ -93,8 +93,8 @@ php app/tools/recalc_patterns.php
 
 ## Team
 
-- Your Name: [GitHub profile link]
-- Teammate Name: [GitHub profile link]
+- My Name: Eusa Anjum Himel
+- Teammate Name: 1/ Faija Ahamed Mim  2/ Maryum Binte Hossain
 
 ## License
 
