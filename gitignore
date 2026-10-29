@@ -1,0 +1,10 @@
+# User-uploaded avatars (keep the folder and its .htaccess)
+public/uploads/avatars/*
+!public/uploads/avatars/.htaccess
+
+# Local files
+.env
+*.log
+node_modules/
+.DS_Store
+Thumbs.db

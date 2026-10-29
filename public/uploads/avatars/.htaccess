@@ -1,0 +1,25 @@
+# Uploaded avatars: serve images only and never run anything in this folder (Apache 2.4).
+Options -ExecCGI -Indexes -Includes
+<IfModule mod_php.c>
+  php_flag engine off
+</IfModule>
+<IfModule mod_php7.c>
+  php_flag engine off
+</IfModule>
+<IfModule mod_php8.c>
+  php_flag engine off
+</IfModule>
+RemoveHandler .php .phtml .php3 .php4 .php5 .php7 .php8 .phps .phar .pl .py .cgi .shtml
+RemoveType .php .phtml .php3 .php4 .php5 .php7 .php8 .phps .phar
+# deny everything, then allow only the file names the upload code creates
+<FilesMatch ".*">
+  Require all denied
+</FilesMatch>
+<FilesMatch "^u[0-9]+_[0-9a-f]{16}\.jpg$">
+  Require all granted
+</FilesMatch>
+ForceType image/jpeg
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Content-Security-Policy "default-src 'none'; img-src 'self'"
+</IfModule>
